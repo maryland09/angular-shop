@@ -1,0 +1,37 @@
+
+  <div class="logo-header">
+    <p> Electronics</p>
+    <img class="logo-img" src="./assets/images/dea0f3b7f480b1151c08db4a402a43b9.jpg">
+  </div>
+
+
+  <div class="menu-header">
+
+    <button mat-icon-button routerLink="/">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <button mat-stroked-button color="accent">All electronics</button>
+    <button mat-stroked-button color="accent">Laptop</button>
+    <button mat-stroked-button color="accent">Smartphone</button>
+    <button mat-stroked-button color="accent">Smartspeaker</button>
+    <button mat-stroked-button color="accent">Smartwatch</button>
+    <button mat-stroked-button color="accent">Tablet</button>
+
+
+    <span class="spacer"></span>
+    <button mat-icon-button>
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+
+  </div>
+
+
+<!--CONTENT-->
+<mat-card class="card">
+  <router-outlet></router-outlet>
+</mat-card>
