@@ -14,6 +14,10 @@ import { MainMenuComponent } from './main/main-menu.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {MatCardModule} from "@angular/material/card";
 
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import {MatCardModule} from "@angular/material/card";
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    HttpClientModule
 
   ],
   providers: [],
