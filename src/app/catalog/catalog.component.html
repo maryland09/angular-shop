@@ -1,9 +1,21 @@
 
-
-<!--КАРТОЧКИ ТОВАРОВ-->
-
-<div class="catalog">
-<ng-container *ngFor="let product of products">
-  <app-card [product]="product"></app-card>
-</ng-container>
+<div class="menu-header">
+  <button mat-stroked-button color="accent" (click)="changeCategory(categoryEnum.all)">All</button>
+  <button mat-stroked-button color="accent" (click)="changeCategory(categoryEnum.laptop)">Laptop</button>
+  <button mat-stroked-button color="accent" (click)="changeCategory(categoryEnum.smartphone)">Smartphone</button>
+  <button mat-stroked-button color="accent" (click)="changeCategory(categoryEnum.smartspeaker)">Smartspeaker</button>
+  <button mat-stroked-button color="accent" (click)="changeCategory(categoryEnum.smartwatch)">Smartwatch</button>
+  <button mat-stroked-button color="accent" (click)="changeCategory(categoryEnum.tablet)">Tablet</button>
 </div>
+
+
+<mat-card>
+
+  <!--КАРТОЧКИ ТОВАРОВ-->
+
+  <div class="catalog">
+    <ng-container *ngFor="let product of products">
+      <app-card [product]="product"></app-card>
+    </ng-container>
+  </div>
+</mat-card>

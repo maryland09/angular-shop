@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {HttpProductResponse} from "../types/product";
+import {Injectable} from '@angular/core';
+import {HttpProductResponse, Product} from "../types/product";
 import {HttpService} from "./http.service";
 
 @Injectable({
@@ -7,7 +7,12 @@ import {HttpService} from "./http.service";
 })
 export class ProductService {
 
-  constructor(private readonly httpService: HttpService) { }
+  private _allProducts!: Array<Product>
+
+  constructor(private readonly httpService: HttpService) {
+  this.getAllProducts().subscribe(data => this._allProducts = data.items)
+
+  }
 
   // public getProductsFromServer(queryParam: { [key: string]: string | number } = {}): Observable<HttpProductResponse> {
   //   const params = new HttpParams({fromObject: queryParam})
@@ -15,12 +20,16 @@ export class ProductService {
   //   return this.httpService.get<HttpProductResponse>(url, params)
   // }
 
-  getProducts() {
+  getAllProducts() {
     return this.httpService.get<HttpProductResponse>('https://localhost:3000/api/products/?page=1&limit=51&orderBy=title')
   }
 
-  getProductsById(id: number) {
-    return this.httpService.get<HttpProductResponse>('https://localhost:3000/api/products/' + id)
+  getProductsByCategory(category: string) {
+    let products: Array<Product> = this._allProducts
+    if (category !== 'all') {
+     products = this._allProducts.filter(prod => prod.category == category)
+    }
+    return products
   }
 
 

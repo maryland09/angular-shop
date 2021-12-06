@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CatalogComponent } from './catalog.component';
 import {CatalogRoutingModule} from "./catalog-routing.module";
 import {CardModule} from "./card/card.module";
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -14,7 +16,9 @@ import {CardModule} from "./card/card.module";
   imports: [
     CommonModule,
     CatalogRoutingModule,
-    CardModule
+    CardModule,
+    MatButtonModule,
+    MatCardModule
 
   ],
   exports:[CatalogComponent]
