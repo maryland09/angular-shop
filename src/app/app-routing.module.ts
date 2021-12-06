@@ -20,15 +20,19 @@ const routes: Routes = [
   //   path: 'order-register',
   //   component: OrderRegisterComponent
   // },
-  // {
-  //   path: 'products',
-  //   children: [
-  //     {
-  //       path: '',
-  //       loadChildren: () =>
-  //         import('./catalog/catalog.module')
-  //           .then(mod => mod.CatalogModule)
-  //     },
+  {
+    path: 'products',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./catalog/catalog.module')
+            .then(mod => mod.CatalogModule)
+      }
+    ]
+  },
+
+
   //
   //     {
   //       path:':id',
