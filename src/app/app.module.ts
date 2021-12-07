@@ -15,6 +15,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {MatCardModule} from "@angular/material/card";
 
 import { HttpClientModule } from '@angular/common/http';
+import {CartComponent} from "./cart/cart.component";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatBadgeModule} from "@angular/material/badge";
 
 
 
@@ -23,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     MainMenuComponent,
-    HomePageComponent
+    HomePageComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule,
+    MatGridListModule,
+    MatBadgeModule,
 
   ],
   providers: [],

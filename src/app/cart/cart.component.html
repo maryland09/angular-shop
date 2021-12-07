@@ -1,0 +1,52 @@
+<ng-container *ngIf="cartService.isCartEmpty(); else notEmpty">
+  <h1>Your cart is currently empty.</h1>
+</ng-container>
+
+
+<ng-template #notEmpty>
+  <mat-card>
+    <h2>Shopping Cart</h2>
+
+    <mat-divider></mat-divider>
+
+    <ng-container *ngFor="let product of this.cartService.cartMap | keyvalue">
+
+      <mat-grid-list cols="4" rowHeight="2:1">
+        <!--    1-->
+        <mat-grid-tile>
+          <img style="width: 40%" src="{{product.key.image}}">
+        </mat-grid-tile>
+
+        <!--    2-->
+        <mat-grid-tile style="font-size: 18px">
+          {{product.key.title | uppercase}} <br>
+          {{product.key.company}}, {{product.key.category}}<br>
+          {{product.key.price | currency }}
+        </mat-grid-tile>
+
+        <!--    3-->
+        <mat-grid-tile>
+          <button mat-mini-fab color="accent" style="margin: 0 5px">
+            <mat-icon>remove</mat-icon>
+          </button>
+          {{product.value}}
+          <button mat-mini-fab color="accent" style="margin: 0 5px">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-grid-tile>
+
+        <!--    4-->
+        <mat-grid-tile>
+          <button mat-mini-fab color="accent" style="margin: 0 5px">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+      <mat-divider></mat-divider>
+    </ng-container>
+
+  </mat-card>
+
+</ng-template>

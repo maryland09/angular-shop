@@ -1,4 +1,4 @@
-import {Component, DoCheck, OnInit, SimpleChanges} from '@angular/core';
+import {Component, DoCheck, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Product} from "../types/product";
 import {ProductService} from "../services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -17,9 +17,9 @@ export enum CategoryEnum {
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
 })
-export class CatalogComponent implements OnInit, DoCheck {
+export class CatalogComponent implements OnInit, OnChanges, DoCheck {
 
-  public allProducts!: Array<Product>
+  // public allProducts!: Array<Product>
   public products!: Array<Product>
   public category: CategoryEnum = CategoryEnum.all
   public categoryEnum = CategoryEnum
@@ -29,13 +29,21 @@ export class CatalogComponent implements OnInit, DoCheck {
               private readonly router: Router) {
 
     console.log('constructor')
-    productService.getAllProducts().subscribe(data => this.allProducts = data.items)
+    // productService.getAllProducts().subscribe(data => this.allProducts = data.items)
+
     // this.products = this.productService.getProductsByCategory('all')
 
     // if(!this.route.snapshot.queryParams['category']){
     //   this.setQueryParamCategory(CategoryEnum.all)
     // }
 
+
+
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // this.products = this.productService.getProductsByCategory(this.category)
 
   }
 

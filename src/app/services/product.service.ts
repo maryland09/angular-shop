@@ -25,7 +25,6 @@ export class ProductService {
   }
 
 
-
   getProductsByCategory(category: string) {
     let products: Array<Product> = this._allProducts
     if (category !== 'all') {

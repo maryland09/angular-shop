@@ -14,21 +14,16 @@
   </button>
 
 
-<!--  <button mat-icon-button routerLink="/">-->
-<!--    <mat-icon>home</mat-icon>-->
-<!--  </button>-->
+
 
   <button mat-raised-button color="accent" routerLink="products">Shop by category</button>
-  <!--    <button mat-stroked-button color="accent" >Laptop</button>-->
-  <!--    <button mat-stroked-button color="accent">Smartphone</button>-->
-  <!--    <button mat-stroked-button color="accent">Smartspeaker</button>-->
-  <!--    <button mat-stroked-button color="accent">Smartwatch</button>-->
-  <!--    <button mat-stroked-button color="accent">Tablet</button>-->
+
 
 
   <span class="spacer"></span>
-  <button mat-icon-button>
-    <mat-icon>shopping_cart</mat-icon>
+
+  <button mat-icon-button routerLink="cart">
+    <mat-icon [matBadge]="cartCount" matBadgeColor="primary" >shopping_cart</mat-icon>
   </button>
 
   <button mat-icon-button>

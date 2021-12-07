@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {ExtraOptions, RouterModule, Routes} from '@angular/router';
 import {MainMenuComponent} from "./main/main-menu.component";
 import {HomePageComponent} from "./home-page/home-page.component";
+import {CartComponent} from "./cart/cart.component";
 
 
 const routes: Routes = [
@@ -43,7 +44,10 @@ const routes: Routes = [
 
     ]
   },
-
+  {
+    path: 'cart',
+    component: CartComponent
+  },
   //
   // {
   //   path:'error',
