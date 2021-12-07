@@ -28,23 +28,21 @@ const routes: Routes = [
         loadChildren: () =>
           import('./catalog/catalog.module')
             .then(mod => mod.CatalogModule)
+      },
+
+
+
+      {
+        path:':id',
+        // canLoad: [ProductGuard],
+        loadChildren: () =>
+          import('./catalog/product-page/product-page.module')
+            .then(mod => mod.ProductPageModule)
       }
+
+
     ]
   },
-
-
-  //
-  //     {
-  //       path:':id',
-  //       canLoad: [ProductGuard],
-  //       loadChildren: () =>
-  //         import('./product-page/product-page.module')
-  //           .then(mod => mod.ProductPageModule)
-  //     }
-  //
-  //
-  //   ]
-  // },
 
   //
   // {

@@ -1,7 +1,7 @@
 
 <mat-card class="card">
 
-  <img mat-card-image [src]="product.image">
+  <img mat-card-image [src]="product.image" (click)="goToProduct(product.id)">
 
   <mat-divider></mat-divider>
 

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit, SimpleChanges} from '@angular/core';
 import {Product} from "../types/product";
 import {ProductService} from "../services/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -15,9 +15,9 @@ export enum CategoryEnum {
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  styleUrls: ['./catalog.component.scss'],
 })
-export class CatalogComponent implements OnInit {
+export class CatalogComponent implements OnInit, DoCheck {
 
   public allProducts!: Array<Product>
   public products!: Array<Product>
@@ -30,24 +30,31 @@ export class CatalogComponent implements OnInit {
 
     console.log('constructor')
     productService.getAllProducts().subscribe(data => this.allProducts = data.items)
-    this.products = this.productService.getProductsByCategory('all')
+    // this.products = this.productService.getProductsByCategory('all')
 
-    if(!this.route.snapshot.queryParams['category']){
-      this.setQueryParamCategory(CategoryEnum.all)
-    }
-
-    // if (this.route.snapshot.queryParams['category']) {
-    //   console.log('yes')
-    //   // console.log(productService.getProductsByCategory(this.category))
-    //   // this.clickedButton = this.route.snapshot.queryParams['category']
-    //   console.log(this.route.snapshot.queryParams['category'])
-    // } else {
-    //   console.log('no')
-    //
-    //   // this.setQueryParamCategory(CategoryEnum.all)
-    //   // this.products = this.productService.getProductsByCategory(this.category)
-    //
+    // if(!this.route.snapshot.queryParams['category']){
+    //   this.setQueryParamCategory(CategoryEnum.all)
     // }
+
+
+  }
+
+  ngDoCheck() {
+
+    this.products = this.productService.getProductsByCategory(this.category)
+
+    if (this.route.snapshot.queryParams['category']) {
+      console.log('yes')
+      this.category = this.route.snapshot.queryParams['category']
+      this.products = this.productService.getProductsByCategory(this.category)
+      // console.log(productService.getProductsByCategory(this.category))
+      console.log(this.route.snapshot.queryParams['category'])
+    } else {
+      console.log('no')
+      this.setQueryParamCategory(CategoryEnum.all)
+      this.products = this.productService.getProductsByCategory(this.category)
+
+    }
 
   }
 
@@ -62,7 +69,6 @@ export class CatalogComponent implements OnInit {
     console.log(this.route.snapshot.queryParams['category'])
     console.log(this.productService.getProductsByCategory(category))
     this.products = this.productService.getProductsByCategory(category)
-
   }
 
 
@@ -72,7 +78,6 @@ export class CatalogComponent implements OnInit {
       queryParams: {category: categoryParam}
     })
   }
-
 
 
 }

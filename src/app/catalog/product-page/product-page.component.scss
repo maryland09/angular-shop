@@ -1,0 +1,88 @@
+.product_info{
+  font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+//     justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-auto-columns: minmax(15rem, 2fr);
+  grid-template-columns: repeat(500px, minmax(15rem, 2fr));
+  grid-gap: 500px;
+}
+
+.item {
+  background: #f1e9f7;
+  border: 3px solid #a579cc;
+  color: #a579cc;
+  padding: 50px 15px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-gap: 1rem;
+}
+.grid > div {
+//   background: #EDE7F6;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  padding: 20px;
+  font-size: 25px;
+  font-family:'Libre Baskerville', serif;
+
+}
+
+// .info{
+//   padding: 20px;
+// }
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.company{
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+
+.price{
+  font-size: 25px;
+  font-weight: bold;
+  margin: 30px 0 0 0;
+
+}
+
+.rating{
+  mat-icon {
+    font-size: 30px;
+    color: grey;
+//     margin: 30px 2px 0 0;
+  }
+}
+
+.description{
+  font-size: 15px;
+  font-weight: lighter;
+  margin: 15px 0 0 0;
+
+}
+
+
+.cart-btn{
+  text-align: center;
+  margin: 15px 0 0 0;
+  button {
+    padding: 10px;
+    width: 100%;
+  }
+}

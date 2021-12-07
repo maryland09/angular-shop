@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../../types/product";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
@@ -18,9 +19,14 @@ export class CardComponent implements OnInit {
     "category": "smartspeaker"
   }
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToProduct(id: number){
+    this.router.navigateByUrl('/products/' + id)
+
   }
 
 }

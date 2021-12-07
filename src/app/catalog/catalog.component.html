@@ -11,6 +11,11 @@
 
 <mat-card>
 
+<ng-container *ngIf="!products">
+  <mat-progress-bar color="primary"  mode="indeterminate"></mat-progress-bar>
+  </ng-container>
+
+
   <!--КАРТОЧКИ ТОВАРОВ-->
 
   <div class="catalog">
