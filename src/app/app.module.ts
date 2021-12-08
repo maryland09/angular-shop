@@ -23,31 +23,31 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
     HomePageComponent,
-    CartComponent
-  ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        MatCardModule,
-        HttpClientModule,
-        MatDividerModule,
-        MatGridListModule,
-        MatBadgeModule,
-        MatCheckboxModule,
+    CartComponent,
 
-    ],
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    HttpClientModule,
+    MatDividerModule,
+    MatGridListModule,
+    MatBadgeModule,
+    MatCheckboxModule,
+
+  ],
   providers: [],
+  exports:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

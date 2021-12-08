@@ -9,16 +9,7 @@ import {Router} from "@angular/router";
 })
 export class CardComponent implements OnInit {
 
-  @Input() product: Product = {
-    "id": 32,
-    "company": "Google",
-    "title": "Home",
-    "price": 7120,
-    "image": "https://avatars.mds.yandex.net/get-mpic/331398/img_id3734318606388092981.jpeg/9hq",
-    "rating": 3,
-    "category": "smartspeaker"
-  }
-
+  @Input() product!: Product
   constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
@@ -26,7 +17,6 @@ export class CardComponent implements OnInit {
 
   goToProduct(id: number){
     this.router.navigateByUrl('/products/' + id)
-
   }
 
 }

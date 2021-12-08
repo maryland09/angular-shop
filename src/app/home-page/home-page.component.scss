@@ -1,0 +1,22 @@
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px 50px;
+  height: 300px;
+}
+
+.text{
+  font-size: 50px;
+  font-family: 'Corinthia', cursive;
+  width: 60%;
+}
+
+button{
+  font-size: 18px;
+  width: 30%;
+  padding: 10px
+
+}

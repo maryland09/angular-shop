@@ -7,6 +7,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {AppModule} from "../app.module";
 
 
 
@@ -15,16 +16,16 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     CatalogComponent,
 
   ],
-  imports: [
-    CommonModule,
-    CatalogRoutingModule,
-    CardModule,
-    MatButtonModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule
+    imports: [
+        CommonModule,
+        CatalogRoutingModule,
+        CardModule,
+        MatButtonModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule,
 
-  ],
+    ],
   exports:[CatalogComponent]
 })
 export class CatalogModule { }

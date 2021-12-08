@@ -1,5 +1,6 @@
 .allButFooter{
   min-height: calc(100vh - 40px);
+  background-color: #f7f7f7;
 }
 
 .logo-header{
@@ -10,18 +11,14 @@
   font-size: 50px;
   font-family: 'Corinthia', cursive;
   color: #11184f;
-  padding: 2px;
+  height: 130px;
+  background-color: white;
+
 }
 
 .logo-img{
-  height: 100px;
+  height: 75%;
 }
-
-// @media all and (max-width: 500px) {
-//   .navigation {
-//     justify-content: space-around;
-//   }
-// }
 
 
 .menu-header {
@@ -42,12 +39,10 @@
   margin: 25px
 }
 
-
 button
 {
   font-size: 17px;
 }
-
 
 .footer{
     display: flex;
@@ -62,7 +57,6 @@ button
 
 
 footer {
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -71,27 +65,9 @@ footer {
     background-color: #f0f0f2;
     height: 48px;
     padding: 5px;
-
-//    left:0px;
-//    bottom:0px;
-//    height:100px;
-//    width:100%;
-//    background-color: #f0f0f2;
-//    text-align: center;
-//    display: inline-block;
-//    vertical-align: middle;
-
-
-
-
-
 }
 
-
-a {
-  text-decoration:none;
+mat-icon{
+  color: black;
 }
 
-.allButFooter{
-  min-height: calc(100vh - 40px);
-}

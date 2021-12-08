@@ -21,15 +21,4 @@ export interface HttpProductResponse {
   meta: Meta
 }
 
-export interface IInCart {
-  product: Product,
-  count: number
-}
 
-
-
-
-// export interface ProductCache{
-//   url: string,
-//   response: HttpProductResponse
-// }

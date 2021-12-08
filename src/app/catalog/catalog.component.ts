@@ -17,9 +17,8 @@ export enum CategoryEnum {
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
 })
-export class CatalogComponent implements OnInit, OnChanges, DoCheck {
+export class CatalogComponent implements OnInit, DoCheck {
 
-  // public allProducts!: Array<Product>
   public products!: Array<Product>
   public category: CategoryEnum = CategoryEnum.all
   public categoryEnum = CategoryEnum
@@ -27,48 +26,9 @@ export class CatalogComponent implements OnInit, OnChanges, DoCheck {
   constructor(private productService: ProductService,
               private readonly route: ActivatedRoute,
               private readonly router: Router) {
-
-    console.log('constructor')
-    // productService.getAllProducts().subscribe(data => this.allProducts = data.items)
-
-    // this.products = this.productService.getProductsByCategory('all')
-
-    // if(!this.route.snapshot.queryParams['category']){
-    //   this.setQueryParamCategory(CategoryEnum.all)
-    // }
-
-
-
-
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    // this.products = this.productService.getProductsByCategory(this.category)
-
-  }
-
-  ngDoCheck() {
-
-    this.products = this.productService.getProductsByCategory(this.category)
-
-    if (this.route.snapshot.queryParams['category']) {
-      console.log('yes')
-      this.category = this.route.snapshot.queryParams['category']
-      this.products = this.productService.getProductsByCategory(this.category)
-      // console.log(productService.getProductsByCategory(this.category))
-      console.log(this.route.snapshot.queryParams['category'])
-    } else {
-      console.log('no')
-      this.setQueryParamCategory(CategoryEnum.all)
-      this.products = this.productService.getProductsByCategory(this.category)
-
-    }
-
   }
 
   ngOnInit(): void {
-
-
   }
 
   changeCategory(category: CategoryEnum) {
@@ -79,12 +39,23 @@ export class CatalogComponent implements OnInit, OnChanges, DoCheck {
     this.products = this.productService.getProductsByCategory(category)
   }
 
-
   setQueryParamCategory(categoryParam: string) {
     this.router.navigate(['.'], {
       relativeTo: this.route,
       queryParams: {category: categoryParam}
     })
+  }
+
+  ngDoCheck() {
+    this.products = this.productService.getProductsByCategory(this.category)
+
+    if (this.route.snapshot.queryParams['category']) {
+      this.category = this.route.snapshot.queryParams['category']
+      this.products = this.productService.getProductsByCategory(this.category)
+    } else {
+      this.setQueryParamCategory(CategoryEnum.all)
+      this.products = this.productService.getProductsByCategory(this.category)
+    }
   }
 
 

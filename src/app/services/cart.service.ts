@@ -7,19 +7,7 @@ import {BehaviorSubject} from "rxjs";
 })
 export class CartService {
 
-  // public cartMap = new Map<Product, number>([[{
-  //   "id": 16,
-  //   "company": "Apple",
-  //   "title": "Watch Series 4 link Braclet",
-  //   "price": 71992,
-  //   "image": "https://avatars.mds.yandex.net/get-mpic/96484/img_id7765255541283425686/9hq",
-  //   "rating": 5,
-  //   "category": "smartwatch"
-  // }, 5]])
-
   public cartMap = new Map<Product, number>()
-
-
   private countSource = new BehaviorSubject(0)
   public currentCount = this.countSource.asObservable()
 
@@ -88,6 +76,5 @@ export class CartService {
     this.cartMap.clear()
     this.countSource.next(this.getCartCount())
   }
-
 
 }
