@@ -34,8 +34,10 @@ export class ProductService {
   }
 
   getProductById(id: number){
-    let product: Array<Product> = this._allProducts.filter(prods => prods.id == id)
-    return product[0]
+    // let product: Array<Product> = this._allProducts.filter(prods => prods.id == id)
+    // return product[0]
+    return this.httpService.get<Product>('https://localhost:3000/api/products/' + id)
+
   }
 
 

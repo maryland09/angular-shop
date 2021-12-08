@@ -31,7 +31,7 @@ export class ProductPageComponent implements OnInit {
               private readonly cartService: CartService,
               ) {
     this.productId = this.route.snapshot.params['id']
-    this.product = this.productService.getProductById(this.productId)
+    this.productService.getProductById(this.productId).subscribe(data => this.product = data)
 
     // this.product = productService.getProductById(this.productId)
 

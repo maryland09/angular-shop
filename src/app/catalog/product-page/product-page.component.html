@@ -1,96 +1,37 @@
-<!--<mat-grid-list cols="2" style="display: flex; flex-wrap: wrap;">-->
+<ng-container *ngIf="product">
+  <div class="grid">
+    <div style="text-align: center;">
+      <img [src]="product.image" style="width: 70%">
+    </div>
 
-<!--&lt;!&ndash;  1 column&ndash;&gt;-->
-<!--&lt;!&ndash;  style="background-color: grey"&ndash;&gt;-->
-<!--  <mat-grid-tile >-->
-<!--    <img style="width: 95%" mat-card-image [src]="product.image">-->
-<!--  </mat-grid-tile>-->
+    <div class="info">
+      <div class="title">{{product.title | uppercase}}</div>
+      <mat-divider></mat-divider>
 
-<!--&lt;!&ndash;  2 column&ndash;&gt;-->
-<!--&lt;!&ndash;  style="background-color: antiquewhite"&ndash;&gt;-->
-<!--  <mat-grid-tile>-->
-<!--    <mat-card class="product_info">-->
-<!--      <div class="title">{{product.title | uppercase}}</div>-->
-<!--      <div class="company">{{product.company}}</div>-->
-<!--      <div class="category">{{product.category}}</div>-->
-<!--      <div class="price">{{product.price | currency}}</div>-->
-<!--      <div class="rating">{{product.rating}}</div>-->
-<!--      <button mat-flat-button color="primary">ADD TO CART</button>-->
-<!--    </mat-card>-->
-<!--  </mat-grid-tile>-->
+      <div class="company">{{product.company}}, {{product.category}}</div>
+      <div class="price">{{product.price | currency}}</div>
 
-<!--</mat-grid-list>-->
-<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+      <div class="rating">
+        <mat-icon *ngFor="let star of starsChecked(product.rating)">star</mat-icon>
+        <mat-icon *ngFor="let star of starsUnchecked(product.rating)">star_border</mat-icon>
+      </div>
 
-<!--<div class="product_info">-->
-<!--  <div class="image">-->
-<!--    <mat-card >-->
+      <mat-divider></mat-divider>
+      <div class="description">A computer-based wristwatch that provides an extension to a smartphone via Bluetooth.
+        Emerging in 2011, by 2015
+        there were more than 100 models on the market. A major smartphone advantage is handling phone calls and messages
+        without having to extract the phone from pocket or purse, although not every model supports this feature. The
+        Gear
+        S was the first stand-alone smartwatch to have a unique phone number and make calls entirely on its own.
+      </div>
 
-<!--      <img style="width: 500px" mat-card-image [src]="product.image">-->
-<!--    </mat-card>-->
+      <div class="cart-btn">
+        <button mat-flat-button color="primary" (click)="addToCart(product)">ADD TO CART</button>
+      </div>
+    </div>
 
-<!--  </div>-->
-<!--  <div class="info">-->
-
-<!--    <mat-card >-->
-
-<!--      <div class="title">{{product.title | uppercase}}</div>-->
-<!--      <div class="company">{{product.company}}</div>-->
-<!--      <div class="category">{{product.category}}</div>-->
-<!--      <div class="price">{{product.price | currency}}</div>-->
-<!--      <div class="rating">{{product.rating}}</div>-->
-<!--      <button mat-flat-button color="primary">ADD TO CART</button>-->
-<!--    </mat-card>-->
-
-<!--  </div>-->
-
-<!--</div>-->
-
-<!--<div class="container">-->
-<!--  <div class="item">-->
-
-<!--          <img  mat-card-image [src]="product.image">-->
-
-<!--  </div>-->
-<!--  <div class="item">1</div>-->
-
-<!--</div>-->
-
-<div class="grid">
-  <div style="text-align: center;">
-    <img style="width: 70%" mat-card-image [src]="product.image">
   </div>
-
-  <div class="info">
-    <div class="title">{{product.title | uppercase}}</div>
-    <mat-divider></mat-divider>
-
-    <div class="company">{{product.company}}, {{product.category}}</div>
-    <div class="price">{{product.price | currency}}</div>
-
-    <div class="rating">
-
-      <mat-icon *ngFor="let star of starsChecked(product.rating)">star</mat-icon>
-      <mat-icon *ngFor="let star of starsUnchecked(product.rating)">star_border</mat-icon>
-    </div>
-
-    <mat-divider></mat-divider>
-    <div class="description">A computer-based wristwatch that provides an extension to a smartphone via Bluetooth.
-      Emerging in 2011, by 2015
-      there were more than 100 models on the market. A major smartphone advantage is handling phone calls and messages
-      without having to extract the phone from pocket or purse, although not every model supports this feature. The Gear
-      S was the first stand-alone smartwatch to have a unique phone number and make calls entirely on its own.
-    </div>
-
-    <div class="cart-btn">
-      <button mat-flat-button color="primary" (click)="addToCart(product)">ADD TO CART</button>
-    </div>
-  </div>
-
-
-</div>
-
-
+</ng-container>
 
 
 <!--  <div>Ducimus quibusdam inventore delectus doloribus dignissimos. Dignissimos quos officia minus exercitationem-->
