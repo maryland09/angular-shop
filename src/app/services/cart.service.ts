@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Product} from "../types/product";
-import {relativeToRootDirs} from "@angular/compiler-cli/src/transformers/util";
 import {BehaviorSubject} from "rxjs";
 
 @Injectable({
@@ -24,11 +23,14 @@ export class CartService {
   private countSource = new BehaviorSubject(0)
   public currentCount = this.countSource.asObservable()
 
+  constructor() {
+  }
+
   isCartEmpty() {
     return this.cartMap.size == 0
   }
 
-  getCartCount(){
+  getCartCount() {
     let count = 0
     for (let value of this.cartMap.values()) {
       count += value
@@ -55,7 +57,37 @@ export class CartService {
 
   }
 
-
-  constructor() {
+  decreaseCount(product: Product) {
+    if (this.cartMap.has(product)) {
+      let newCount = this.cartMap.get(product)
+      newCount! -= 1
+      if (newCount! == 0) {
+        this.removeProduct(product)
+      }
+      else{
+        this.cartMap.set(product, newCount!)
+      }
+    }
+    this.countSource.next(this.getCartCount())
   }
+
+  removeProduct(product: Product) {
+    this.cartMap.delete(product)
+    this.countSource.next(this.getCartCount())
+ }
+
+  getTotalPrice() {
+    let totalPrice = 0
+    for (let [key, value] of this.cartMap) {
+      totalPrice += key.price * value
+    }
+    return totalPrice
+  }
+
+  removeAll(){
+    this.cartMap.clear()
+    this.countSource.next(this.getCartCount())
+  }
+
+
 }

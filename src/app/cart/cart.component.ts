@@ -26,13 +26,16 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  starsChecked(rating: number) {
-    return new Array(rating);
+  increaseCount(product: Product){
+    this.cartService.addToCart(product)
   }
 
-  starsUnchecked(rating: number) {
-    return new Array(5 - rating);
+  deleteFromCart(product: Product){
+    this.cartService.removeProduct(product)
   }
 
+  decreaseCount(product: Product){
+    this.cartService.decreaseCount(product)
+  }
 
 }

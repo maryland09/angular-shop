@@ -19,6 +19,8 @@ import {CartComponent} from "./cart/cart.component";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatBadgeModule} from "@angular/material/badge";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+
 
 
 
@@ -30,20 +32,21 @@ import {MatBadgeModule} from "@angular/material/badge";
     HomePageComponent,
     CartComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    HttpClientModule,
-    MatDividerModule,
-    MatGridListModule,
-    MatBadgeModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        HttpClientModule,
+        MatDividerModule,
+        MatGridListModule,
+        MatBadgeModule,
+        MatCheckboxModule,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

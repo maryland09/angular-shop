@@ -1,3 +1,7 @@
+.allButFooter{
+  min-height: calc(100vh - 40px);
+}
+
 .logo-header{
   display: flex;
   flex-wrap: wrap;
@@ -42,4 +46,52 @@
 button
 {
   font-size: 17px;
+}
+
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f2;
+    height: 55px;
+    padding: 5px;
+}
+
+
+footer {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f2;
+    height: 48px;
+    padding: 5px;
+
+//    left:0px;
+//    bottom:0px;
+//    height:100px;
+//    width:100%;
+//    background-color: #f0f0f2;
+//    text-align: center;
+//    display: inline-block;
+//    vertical-align: middle;
+
+
+
+
+
+}
+
+
+a {
+  text-decoration:none;
+}
+
+.allButFooter{
+  min-height: calc(100vh - 40px);
 }

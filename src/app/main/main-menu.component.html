@@ -1,37 +1,53 @@
-<div class="logo-header">
-  <p> Electronics</p>
-  <img class="logo-img" src="./assets/images/dea0f3b7f480b1151c08db4a402a43b9.jpg">
+<div class="allButFooter">
+
+  <div class="logo-header">
+    <p> Electronics</p>
+    <img class="logo-img" src="./assets/images/dea0f3b7f480b1151c08db4a402a43b9.jpg">
+  </div>
+
+
+  <div class="menu-header">
+
+    <button mat-raised-button color="accent"
+            routerLink="/">
+      <mat-icon>home</mat-icon>
+      Home page
+    </button>
+
+    <button mat-raised-button color="accent" routerLink="products">Shop by category</button>
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button routerLink="cart">
+      <mat-icon [matBadge]="cartCount" matBadgeColor="primary">shopping_cart</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon>share</mat-icon>
+    </button>
+
+  </div>
+
+
+  <!--CONTENT-->
+  <router-outlet></router-outlet>
+
 </div>
 
+<!--footer-->
 
-<div class="menu-header">
+<footer>
+  <div>
+    © Maria Dragan, 2021
+  </div>
 
+  <div>
+    <!--    <a href="https://t.me/mashadragan"><mat-icon>telegram</mat-icon></a>-->
+    <!--    <a href="mailto:mariadragan755@gmail.com"> <mat-icon>mail</mat-icon></a>-->
+    <mat-icon>telegram</mat-icon>
+    <mat-icon>facebook</mat-icon>
+    <mat-icon>mail</mat-icon>
+  </div>
 
-  <button mat-raised-button color="accent"
-          routerLink="/">
-    <mat-icon>home</mat-icon> Home page
+</footer>
 
-  </button>
-
-
-
-
-  <button mat-raised-button color="accent" routerLink="products">Shop by category</button>
-
-
-
-  <span class="spacer"></span>
-
-  <button mat-icon-button routerLink="cart">
-    <mat-icon [matBadge]="cartCount" matBadgeColor="primary" >shopping_cart</mat-icon>
-  </button>
-
-  <button mat-icon-button>
-    <mat-icon>share</mat-icon>
-  </button>
-
-</div>
-
-
-<!--CONTENT-->
-<router-outlet></router-outlet>

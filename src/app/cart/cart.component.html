@@ -18,26 +18,28 @@
         </mat-grid-tile>
 
         <!--    2-->
-        <mat-grid-tile style="font-size: 18px">
+        <mat-grid-tile >
+          <div class="left">
           {{product.key.title | uppercase}} <br>
           {{product.key.company}}, {{product.key.category}}<br>
           {{product.key.price | currency }}
+          </div>
         </mat-grid-tile>
 
         <!--    3-->
         <mat-grid-tile>
-          <button mat-mini-fab color="accent" style="margin: 0 5px">
+          <button mat-mini-fab color="accent" style="margin: 0 5px" (click)="decreaseCount(product.key)">
             <mat-icon>remove</mat-icon>
           </button>
           {{product.value}}
-          <button mat-mini-fab color="accent" style="margin: 0 5px">
+          <button mat-mini-fab color="accent" style="margin: 0 5px" (click)="increaseCount(product.key)">
             <mat-icon>add</mat-icon>
           </button>
         </mat-grid-tile>
 
         <!--    4-->
         <mat-grid-tile>
-          <button mat-mini-fab color="accent" style="margin: 0 5px">
+          <button mat-mini-fab color="accent" style="margin: 0 5px" (click)="deleteFromCart(product.key)">
             <mat-icon>delete</mat-icon>
           </button>
         </mat-grid-tile>
@@ -46,6 +48,14 @@
 
       <mat-divider></mat-divider>
     </ng-container>
+
+
+    <!--    total price-->
+    <div class="total">
+      <p class="total_name">SUBTOTAL {{this.cartService.getTotalPrice() | number: '1.1-1'}}$</p>
+      <button mat-flat-button color="primary" class="total_btn" (click)="cartService.removeAll()">CHECK OUT</button>
+    </div>
+
 
   </mat-card>
 
